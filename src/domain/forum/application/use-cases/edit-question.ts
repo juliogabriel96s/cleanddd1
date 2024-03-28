@@ -1,3 +1,4 @@
+import { Question } from "../../enterprise/entities/question"
 import { QuestionRepository } from "../repositories/question-repository"
 
 interface EditQuestionUseCaseRequest{
@@ -8,6 +9,7 @@ interface EditQuestionUseCaseRequest{
 }
 
 interface EditQuestionUseCaseResponse{
+    question: Question
 }
 
 export class EditQuestionUseCase{
@@ -36,7 +38,7 @@ export class EditQuestionUseCase{
       await this.questionRepository.save(question)
 
       return{
-        
+        question
       }
     }
 }
